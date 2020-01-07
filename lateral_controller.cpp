@@ -14,6 +14,11 @@ public:
     //Returns closest point in desired Path
   }
 
+  void get_theta(Point& P)
+  {
+    //returns theta at a certain point
+  }
+
   double R(Point P)
   {
     //Returns Radius of curvature at Point p
@@ -38,12 +43,13 @@ public:
     y= -current_p.x*sin(current_p.theta)+current_p.y*cos(current_p.theta);
 
     x= x+c.L/2;
-
+    double theta= P.get_theta
     x_w= x*cos(current_p.theta)-y*sin(current_p.theta);
     y_w= x*sin(current_p.theta)+y*cos(current_p.theta);
 
-    Point d_axle_p= {x_w,y_w, current_p.theta}; //Drive axle point
-
+    Point d_axle_p; // drive axle Point
+    d_axle_p.x= x_w; d_axle_p.y= y_w;
+    double theta= P.get_theta(d_axle_p);
     Point closest_p = P.closest_p(d_axle_p); //closest point to drive axle point
     double x_diff= x_w-closest_p.x;
     double y_diff= y_w-closest_p.y;
