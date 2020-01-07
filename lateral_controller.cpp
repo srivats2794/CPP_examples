@@ -32,6 +32,7 @@ public:
     double x_w,y_w; //New world coordinates
     double phi;
     double k=1; //initial untuned control paramter
+    c.L=1;c.V=1; // 1m wheel base, 1m/s speed
 
     x= current_p.x*cos(current_p.theta)+current_p.y*sin(current_p.theta);
     y= -current_p.x*sin(current_p.theta)+current_p.y*cos(current_p.theta);
@@ -48,6 +49,6 @@ public:
     double y_diff= y_w-closest_p.y;
     double dist_error= sqrt((x_diff*xdiff)+(y_diff*y_diff));
     double heading_error= closest_p.theta-current_p.theta;
-    phi= heading_error+atan2((k*dist_error)/v); // k/v gives the look ahead distance in the path
+    phi= heading_error+atan2((k*dist_error)/c.V); // k/v gives the look ahead distance in the path
   }
 }
