@@ -56,5 +56,6 @@ public:
     double dist_error= sqrt((x_diff*xdiff)+(y_diff*y_diff));
     double heading_error= closest_p.theta-current_p.theta;
     phi= heading_error+atan2((k*dist_error)/c.V); // k/v gives the look ahead distance in the path
+    return phi;
   }
 }
